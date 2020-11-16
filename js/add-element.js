@@ -21,22 +21,15 @@ $('#add').click(addElement);
 
 function addElement() {
   // add a new element
-      // add a input text box
-      $("#todo").append("<li><input type='text'> </li>");
+  $("#todo").append("<li><input type = 'text'></li>");
+  
+  $('input').blur(function(){
+  $(this).parent().addClass("cool");
 
-      // whenever the user are done
-     
-      $('input').blur(function(){
-        //change style
-        $(this).parent().addClass("cool");
-
-        // bind click with new li element 
-       
-        //remove input element and replace with the value user typed
-         var userinput = $(this).val();
-        $(this).parent().text(userinput);
-      });
-
+  var uInput = $(this).val();
+  $(this).parent().text(uInput);
+  $("li").click(changeStyle);
+});
 }
 
 $("li").click(changeStyle);  // bind click with the event handler
